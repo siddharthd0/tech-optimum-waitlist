@@ -10,6 +10,7 @@ import {
   Image,
   Switch,
   FormControl,
+  Spacer,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -23,7 +24,7 @@ import {
 } from "@chakra-ui/react";
 import Confetti from "react-confetti";
 import { useMemo } from "react";
-
+import { FaBook, FaCode, FaLaptopCode, FaUsers } from "react-icons/fa";
 export default function Home({ waitlist }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -60,10 +61,9 @@ export default function Home({ waitlist }) {
 
       const data = await response.json();
       if (response.ok) {
-        // Check if the response status is OK
         setSubmitted(true);
         toast({
-          description: data.message, // This will include the user's position in the waitlist
+          description: data.message,
           status: "success",
           duration: 5000,
           isClosable: true,
@@ -101,105 +101,166 @@ export default function Home({ waitlist }) {
         width="100%"
         alignItems="center"
         justifyContent="center"
+        bg="#EFEFEF"
       >
-        <Box width={["100%", "90%", "80%", "400px"]}>
+        <Box
+          width={["100%", "90%", "80%", "400px"]}
+          bg="white"
+          p={5}
+          borderRadius="md"
+          boxShadow="md"
+        >
           <Link href="https://techoptimum.org" isExternal>
             <Image
-              maxW="200px"
-              src="/text-lblue-transparent.png"
+              maxW="150px"
+              src="/text-black-transparent-tight.png"
               alt="Tech Optimum Logo"
               mb={6}
             />
           </Link>
 
           <Box mb={4}>
-            <Text fontSize="md" fontStyle="italic">
-              Tech Optimum — a new way of learning through project-based micro
-              hackathons that are 6 hours long.
+            <Text color="black">
+              Tech Optimum — A New Way of Learning Through Project-Based Micro
+              Hackathons That Are 8 Hours Long.
             </Text>
-            <Button mt={2} variant="link" color="blue.100" onClick={onOpen}>
-              learn more about our vision
+            <Button
+              size="sm"
+              _hover={{
+                bg: "blue.500",
+                color: "white",
+              }}
+              variant="outline"
+              mt={2}
+              colorScheme="blue"
+              onClick={onOpen}
+            >
+              Learn More About Our Vision
             </Button>
 
             <Modal
               isOpen={isOpen}
               onClose={onClose}
-              isCentered
-              colorScheme="teal"
+              size="6xl"
+              colorScheme="blue"
             >
               <ModalOverlay />
-              <ModalContent bg="gray.800" color="white">
-                <ModalHeader>our vision</ModalHeader>
+              <ModalContent p={5}>
+                <ModalHeader color="black" fontSize="3xl" fontWeight="bold">
+                  Our Vision
+                </ModalHeader>
                 <ModalCloseButton />
-                <ModalBody>
-                  <Text fontWeight="bold" fontSize="lg" mb={4}>
-                    why traditional courses don't work
-                  </Text>
-                  <Text mb={3}>
-                    courses have become an outdated means of learning. many fall
-                    into the trap of endless tutorials without gaining practical
-                    experience.
-                  </Text>
+                <ModalBody
+                  display="grid"
+                  gridTemplateColumns="repeat(2, 1fr)"
+                  gap={4}
+                >
+                  {/* Top Left */}
+                  <Box p={3} borderRadius="md" color="green.900" bg="green.100">
+                    <FaBook size={40} />
+                    <Flex>
+                    <Text fontWeight="bold" fontSize="lg" mt={2}>
+                      Quality Education
+                    </Text>
+                    <Spacer/>
+                    <Link isExternal href="https://dashboard.techoptimum.org" _hover={{
+                      textDecoration: "none",
+                      
+                    }}>
+                    <Button colorScheme="green">
+                      Check out our courses
+                    </Button>
+                    </Link>
+                    </Flex>
+                    <Text mt={3}>
+                      We believe in giving a top-notch computer science
+                      education to everyone. That's why we started our online
+                      courses.
+                    </Text>
+                  </Box>
 
-                  <Text fontWeight="bold" fontSize="lg" mb={4}>
-                    escape the tutorial hell
-                  </Text>
-                  <Text mb={3}>
-                    it's easy to get stuck in a loop of tutorials. but true
-                    learning happens when you break free and start building.
-                  </Text>
+                  {/* Top Right */}
+                  <Box
+                    p={3}
+                    borderRadius="md"
+                    color="purple.900"
+                    bg="purple.100"
+                  >
+                    <FaLaptopCode size={40} />
+                    <Text fontWeight="bold" fontSize="lg" mt={2}>
+                      More Than Just Courses
+                    </Text>
+                    <Text mt={3}>
+                      Courses are a beginning. We believe people learn best by 
+                      doing. That's why we created our micro hackathons cohort.
+                    </Text>
+                  </Box>
 
-                  <Text fontWeight="bold" fontSize="lg" mb={4}>
-                    save your money
-                  </Text>
-                  <Text mb={3}>
-                    stop spending on courses that don't provide real value. your
-                    time and money deserve better.
-                  </Text>
+                  {/* Bottom Left */}
+                  <Box p={3} borderRadius="md" color="cyan.900" bg="cyan.100">
+                    <FaCode size={40} />
+                    <Text fontWeight="bold" fontSize="lg" mt={2}>
+                      Micro Hackathons
+                    </Text>
+                    <Text mt={3}>
+                      Dive into our 8-hour coding competitions every other week.
+                      Transform from novice to professional.
+                    </Text>
+                  </Box>
 
-                  <Text fontWeight="bold" fontSize="lg" mb={4}>
-                    micro hackathons - the future of learning
-                  </Text>
-                  <Text mb={3}>
-                    they're fun, immersive, and collaborative. dive deep into
-                    coding through project-based challenges and competitions.
-                    apply your skills in real-time, and watch your capabilities
-                    grow.
-                  </Text>
+                  {/* Bottom Right */}
+                  <Box
+                    p={3}
+                    borderRadius="md"
+                    color="facebook.900"
+                    bg="facebook.100"
+                  >
+                    <FaUsers size={40} color="blue.800" />
+                    <Text fontWeight="bold" fontSize="lg" mt={2}>
+                      Become an Epic Coder
+                    </Text>
+                    <Text mt={3}>
+                      Join our 3-month, 9-week program. Challenge yourself,
+                      collaborate, and evolve as an outstanding coder.
+                    </Text>
+                  </Box>
                 </ModalBody>
                 <ModalFooter>
-                  <Button
-                    variant="outline"
-                    colorScheme="white"
-                    mr={3}
-                    onClick={onClose}
-                  >
-                    join the waitlist now
+                  <Button colorScheme="blue" onClick={onClose}>
+                    Join the Waitlist Now
                   </Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>
           </Box>
           {submitted ? (
-            <Text>thanks for joining the waitlist, {name}!</Text>
+            <Text>Thanks for Joining the Waitlist, {name}!</Text>
           ) : (
-            <VStack spacing={4}>
+            <VStack color="black" spacing={4}>
               <Input
-                variant="flushed"
-                placeholder="name"
+                variant="outline"
+                placeholder="Name"
                 value={name}
-                onChange={(e) => setName(e.target.value.toLowerCase())}
+                onChange={(e) => setName(capitalizeWords(e.target.value))}
               />
               <Input
-                variant="flushed"
-                placeholder="email"
+                variant="outline"
+                placeholder="Email"
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                onChange={(e) => setEmail(e.target.value)}
               />
 
-              <Button colorScheme="black" onClick={handleSubmit}>
-                join waitlist
+              <Button
+                _hover={{
+                  bg: "blue.500",
+                  color: "white",
+                }}
+                variant="outline"
+                colorScheme="blue"
+                onClick={handleSubmit}
+              >
+                Join Waitlist
               </Button>
             </VStack>
           )}
