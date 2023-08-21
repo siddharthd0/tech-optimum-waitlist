@@ -29,26 +29,27 @@ const transporter = nodemailer.createTransport({
 
 async function sendEmail(name, email) {
   const mailOptions = {
-    from: '"Tech Optimum Crew" <hr@techoptimum.org>',
+    from: '"Tech Optimum Support" <hr@techoptimum.org>',
     to: email,
-    subject: 'thanks for joining the tech optimum waitlist',
+    subject: 'Thank You for Joining the Tech Optimum Waitlist',
     html: `<div style="background-color: #f9f9f9; padding: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;">
     <div style="text-align: center;">
         <img src="https://www.techoptimum.org/text-black-transparent.png" alt="Logo" style="width: 150px; opacity: 0.8;">
     </div>
     <div style="background-color: white; margin: 20px auto; padding: 20px; max-width: 500px; border-radius: 10px; box-shadow: 0 2px 15px rgba(0,0,0,0.1);">
-        <h1 style="color: #555; font-size: 18px;">hey ${name},</h1>
-        <p style="font-size: 14px; color: #888; line-height: 1.5;">good news! you've made it to the tech optimum waitlist. we're stoked to have you onboard and will buzz you when we launch. till then, keep it cool!</p>
-        <p style="font-size: 14px; color: #888; line-height: 1.5;">stay curious and thanks for vibing with us.</p>
-        <p style="font-size: 14px; color: #888; line-height: 1.5;"><strong>peace out,</strong><br>the tech optimum crew</p>
+        <h1 style="color: #555; font-size: 18px;">Dear ${name},</h1>
+        <p style="font-size: 14px; color: #888; line-height: 1.5;">We're pleased to inform you that you've been added to the Tech Optimum waitlist. We greatly appreciate your interest and will notify you promptly once we launch micro-hackathons.</p>
+        <p style="font-size: 14px; color: #888; line-height: 1.5;">In the meantime, we invite you to check out our free coding courses available at <a href="https://dashboard.techoptimum.org" style="color: #4466FF;">https://dashboard.techoptimum.org</a>. We believe in providing quality education, and these courses are a testament to our commitment.</p>
+        <p style="font-size: 14px; color: #888; line-height: 1.5;">Thank you for your patience and trust in our platform. Your dedication to advancing in the world of tech is commendable, and we are eager to assist you in your journey.</p>
+        <p style="font-size: 14px; color: #888; line-height: 1.5;">Best Regards,<br>The Tech Optimum Team</p>
     </div>
     <div style="color: #888; font-size: 12px; text-align: center; padding: 20px;">
-        <p>tech optimum<br>some place on earth</p>
-        <p>for questions, <a href="mailto:team@techoptimum.org" style="color: #666; text-decoration: none;">drop us an email</a></p>
+        <p>Tech Optimum, <br> 1350 S Five Mile Road, Boise, Idaho, 83616</p>
+        <p>If you have any inquiries, please <a href="mailto:team@techoptimum.org" style="color: #666; text-decoration: none;">contact us</a>.</p>
     </div>
-</div>
-`
+</div>`
   };
+
 
   try {
     await transporter.sendMail(mailOptions);
