@@ -234,7 +234,7 @@ export default function Home({ waitlist }) {
             </Modal>
           </Box>
           {submitted ? (
-            <Text>Thanks for Joining the Waitlist, {name}!</Text>
+            <Text color="black">Thanks for Joining the Waitlist, {name}!</Text>
           ) : (
             <VStack color="black" spacing={4}>
               <Input
