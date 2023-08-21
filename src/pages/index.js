@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import {
   Box,
   Button,
@@ -23,7 +23,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import Confetti from "react-confetti";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { FaBook, FaCode, FaLaptopCode, FaUsers } from "react-icons/fa";
 export default function Home({ waitlist }) {
   const [name, setName] = useState("");
@@ -94,9 +94,9 @@ export default function Home({ waitlist }) {
 
   return (
     <>
-      {showConfetti && <Confetti />}
+         {showConfetti && <Confetti />}
       <Flex
-        px={["3rem", "0"]}
+        px={["2rem", "4rem"]}
         minHeight="100vh"
         width="100%"
         alignItems="center"
@@ -139,22 +139,24 @@ export default function Home({ waitlist }) {
             </Button>
 
             <Modal
+     
               isOpen={isOpen}
               onClose={onClose}
-              size="6xl"
+              size={["90%", "80%", "70%", "6xl"]}
               colorScheme="blue"
             >
               <ModalOverlay />
               <ModalContent p={5}>
-                <ModalHeader color="black" fontSize="3xl" fontWeight="bold">
+                <ModalHeader color="black" fontSize={["xl", "2xl", "3xl", "3xl"]} fontWeight="bold">
                   Our Vision
                 </ModalHeader>
                 <ModalCloseButton />
                 <ModalBody
                   display="grid"
-                  gridTemplateColumns="repeat(2, 1fr)"
+                  gridTemplateColumns={["repeat(1, 1fr)", "repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(2, 1fr)"]}
                   gap={4}
                 >
+              
                   {/* Top Left */}
                   <Box p={3} borderRadius="md" color="green.900" bg="green.100">
                     <FaBook size={40} />
